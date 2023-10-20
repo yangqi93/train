@@ -4,10 +4,19 @@ const app = getApp()
 
 Component({
   data: {
-    value: 'label_1',
+    value: 'index',
     list: [
-      { value: 'label_1', label: '十号线', icon: 'home' },
-      { value: 'label_2', label: '应用', icon: 'app' },
+      { value: 'index', label: '10号线', icon: 'home' },
+      { value: 'line4', label: '4号线', icon: 'app' },
+    ],
+    station: [
+      { 
+        name: '王家庄',
+        times: [
+          '19:05'
+        ],
+        next: '19:05',
+      },
     ],
   },
 
@@ -16,6 +25,9 @@ Component({
       this.setData({
         value: e.detail.value,
       });
+      wx.navigateTo({
+        url: '../' + e.detail.value + '/' + e.detail.value,
+      })
     },
   },
 });
