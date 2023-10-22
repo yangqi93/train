@@ -1,11 +1,14 @@
 <!--index.wxml-->
 <!-- <view class="container"> -->
-  <t-collapse defaultValue="{{[0]}}" expandMutex expandIcon>
-    <view wx:for="{{station}}" wx:key="index" > 
-      <t-collapse-panel header="{{item.name}} 下一趟: {{item.next}}" value="{{index}}">
-        此处可自定义内容此处可自定义内容此处可自定义内容此处可自定义内容此处可自定义内容此处可自定义内容此处可自定义内容此处可自定义内容
+  <t-collapse expandMutex expandIcon>
+    <!-- <view wx:for="{{station}}" wx:key="index" >  -->
+      <t-collapse-panel header="{{station_0.name}} 下一趟: {{station_0_next}}  {{station_0_next_limit}}" value="{{}}">
+        <view wx:for="{{station_0.times}}" > 
+          {{item}}<br/>
+        </view>
+        
       </t-collapse-panel>
-    </view>
+    <!-- </view> -->
   </t-collapse>
 
 
