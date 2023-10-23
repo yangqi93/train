@@ -2,12 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/line4/line4"
+    "pages/line4/line4",
+    "pages/line10_w/line10_w"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "重庆轨道快速车",
+    "navigationBarTitleText": "轨道快车",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

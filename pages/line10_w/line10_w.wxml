@@ -1,0 +1,17 @@
+<!--pages/line10_w/line10_w.wxml-->
+<!-- <view class="container"> -->
+  <t-collapse expandMutex expandIcon>
+    <view wx:for="{{stations}}" wx:key="index" >
+      <t-collapse-panel header="{{item.name}} 下一趟: {{item.next}}  {{item.next_limit}}" value="{{index}}">
+        <view wx:for="{{item.times}}" >
+          {{item}}<br/>
+        </view>
+      </t-collapse-panel>
+    </view>
+  </t-collapse>
+
+
+  <t-tab-bar value="{{value}}" bindchange="onChange" theme="tag" split="{{false}}">
+    <t-tab-bar-item wx:for="{{list}}" wx:key="index" value="{{item.value}}"> {{item.label}} </t-tab-bar-item>
+  </t-tab-bar>
+<!-- </view> -->

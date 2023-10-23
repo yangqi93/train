@@ -6,8 +6,8 @@ Page({
   data: {
     value: 'index',
     list: [
-      { value: 'index', label: '10号线', icon: 'home' },
-      { value: 'line4', label: '4号线', icon: 'app' },
+      { value: 'index', label: '10号线 快七', icon: 'home' },
+      { value: 'line10_w', label: '10号线 快王', icon: 'app' },
     ],
     stations: {
       'station_0': {
@@ -343,7 +343,6 @@ Page({
       let nowString = now.getHours().toString() + ':' + now.getMinutes().toString();
       for (const station in stationList) {
         let sTimes = stationList[station].times
-        console.log(that.data.stations)
         sTimes.every(function (tt) {
           let item = that.data.stations[station]
           if (tt > nowString) {
