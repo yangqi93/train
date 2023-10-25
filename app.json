@@ -9,7 +9,9 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轨道快车",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "homeButton": true
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

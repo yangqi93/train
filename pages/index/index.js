@@ -5,13 +5,20 @@ const app = getApp()
 Page({
   data: {
     value: 'index',
-    list: [
-      { value: 'index', label: '10号线 快七', icon: 'home' },
-      { value: 'line10_w', label: '10号线 快王', icon: 'app' },
+    list: [{
+        value: 'index',
+        label: '10号线 快七',
+        icon: 'home'
+      },
+      {
+        value: 'line10_w',
+        label: '10号线 快王',
+        icon: 'app'
+      },
     ],
     stations: {
       'station_0': {
-        'name':'王家庄',
+        'name': '王家庄',
         'next': '',
         'times': [
           '07:08',
@@ -337,17 +344,48 @@ Page({
   },
   onLoad() {
     let that = this
-     let stationList = this.data.stations
-    setInterval(function(){
+    that.startSetInter()
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+    this.endSetInter()
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+    this.endSetInter()
+  },
+
+  //微信小程序设置一个定时器
+  startSetInter: function () {
+    let that = this;
+    let stationList = this.data.stations
+    //将计时器赋值给setInter
+    that.data.timer = setInterval(function () {
       let now = new Date();
       let nowString = now.getHours().toString() + ':' + now.getMinutes().toString();
       for (const station in stationList) {
         let sTimes = stationList[station].times
+        //  console.log(station)
         sTimes.every(function (tt) {
           let item = that.data.stations[station]
+          //  console.log(item)
           if (tt > nowString) {
-            item.next = tt
-            item.next_limit = limit(tt)
+            if (tt != '终到站') {
+              item.next = '下一趟:' + tt
+            } else {
+              item.next = tt
+            }
+            let nl = limit(tt)
+            if (nl != '') {
+              item.next_limit = '【' + nl + '】'
+            }
+            //                      console.log(tt)
             that.setData({
               [`stations.${station}`]: item,
             })
@@ -357,6 +395,7 @@ Page({
           }
         })
       }
+      //      console.log(that.data.stations)
     }, 1000);
 
     function limit(t) {
@@ -370,6 +409,7 @@ Page({
       let tt2 = new Date(t2);
       return dateformat(parseInt(tt2 - tt1) / 1000);
     }
+
     function dateformat(micro_second) {
       let second = Math.floor(micro_second % 60);
       let minute = Math.floor((micro_second / 60) % 60);
@@ -381,7 +421,14 @@ Page({
     }
   },
 
-  
+  //微信小程序在页面卸载的时候删除定时器
+  endSetInter: function () {
+    var that = this;
+    //清除计时器  即清除setInter
+    clearInterval(that.data.timer)
+  },
+
+
 
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
