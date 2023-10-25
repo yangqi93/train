@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    timer: 9999,
     value: 'index',
     list: [{
         value: 'index',
@@ -324,6 +325,24 @@ Page({
           '终到站',
         ],
       },
+      'station_11': {
+        'name': '南坪',
+        'times': [
+          '暂未开通',
+        ],
+      },
+      'station_12': {
+        'name': '万寿路',
+        'times': [
+          '暂未开通',
+        ],
+      },
+      'station_13': {
+        'name': '兰花路',
+        'times': [
+          '暂未开通',
+        ],
+      },
     },
   },
 
@@ -369,14 +388,19 @@ Page({
     that.data.timer = setInterval(function () {
       let now = new Date();
       let nowString = now.getHours().toString() + ':' + now.getMinutes().toString();
+      let h = now.getHours
+      if (h < 10) {
+        nowString = '0' + nowString
+      }
+      
       for (const station in stationList) {
         let sTimes = stationList[station].times
         //  console.log(station)
         sTimes.every(function (tt) {
           let item = that.data.stations[station]
-          //  console.log(item)
+          
           if (tt > nowString) {
-            if (tt != '终到站') {
+            if (tt != '终到站' && tt != '暂未开通') {
               item.next = '下一趟:' + tt
             } else {
               item.next = tt
@@ -399,7 +423,7 @@ Page({
     }, 1000);
 
     function limit(t) {
-      if (t == '终到站') {
+      if (t == '终到站' || t == '暂未开通') {
         return '';
       }
       let now = new Date();

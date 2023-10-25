@@ -6,6 +6,8 @@
     "t-collapse": "tdesign-miniprogram/collapse/collapse",
     "t-collapse-panel": "tdesign-miniprogram/collapse-panel/collapse-panel",
     "t-row": "tdesign-miniprogram/row/row",
-    "t-col": "tdesign-miniprogram/col/col"
-  }
+    "t-col": "tdesign-miniprogram/col/col",
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar"
+  },
+  "navigationBarTitleText": "10号线-开往七星岗"
 }

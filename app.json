@@ -8,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "轨道快车",
+    "navigationBarTitleText": "直快车时刻表",
     "navigationBarTextStyle": "black",
     "homeButton": true
   },

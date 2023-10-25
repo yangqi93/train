@@ -1,5 +1,14 @@
 <!--index.wxml-->
 <!-- <view class="container"> -->
+  <t-notice-bar
+  visible="true"
+  direction="vertical"
+  interval="{{3000}}"
+  content="快速列车时刻表信息来源于重庆轨道交通官网，倒计时仅供参考，请提前到站避免延误。"
+  prefixIcon="sound"
+  bind:click="click"
+></t-notice-bar>
+
 <t-collapse expandMutex expandIcon>
   <view wx:for="{{stations}}" wx:key="index">
     <t-collapse-panel header="{{item.name}} {{item.next}}  {{item.next_limit}}" value="{{index}}">
