@@ -2,8 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/line4/line4",
-    "pages/line10_w/line10_w"
+    "pages/line10_w/line10_w",
+    "pages/linex_td/linex_td",
+    "pages/linex_tjt/linex_tjt"
   ],
   "window": {
     "backgroundTextStyle": "light",

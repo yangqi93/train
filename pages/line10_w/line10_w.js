@@ -8,12 +8,22 @@ Page({
     value: 'line10_w',
     list: [{
         value: 'index',
-        label: '10号线 快七',
+        label: '10号线 快七星岗',
         icon: 'home'
       },
       {
         value: 'line10_w',
-        label: '10号线 快王',
+        label: '10号线 快王家庄',
+        icon: 'app'
+      },
+      {
+        value: 'linex_td',
+        label: '4/环/5 直跳蹬',
+        icon: 'app'
+      },
+      {
+        value: 'linex_tjt',
+        label: '5/环/4 直唐家沱',
         icon: 'app'
       },
     ],
@@ -387,24 +397,29 @@ Page({
     //将计时器赋值给setInter
     that.data.timer = setInterval(function () {
       let now = new Date();
-      let nowString = now.getHours().toString() + ':' + now.getMinutes().toString();
-      let h = now.getHours
-      if (h < 10) {
-        nowString = '0' + nowString
+      let h = now.getHours().toString()
+      let m = now.getMinutes().toString()
+      if (h < '10') {
+        h = '0' + h
       }
+      if (m < '10') {
+        m = '0' + m
+      }
+      let nowString = h + ':' + m
+      
       for (const station in stationList) {
         let sTimes = stationList[station].times
         //  console.log(station)
         sTimes.every(function (tt) {
           let item = that.data.stations[station]
-          //  console.log(item)
+          
           if (tt > nowString) {
             if (tt != '终到站' && tt != '暂未开通') {
               item.next = '下一趟:' + tt
             } else {
               item.next = tt
             }
-            let nl = limit(tt)
+            let nl = limit(tt, nowString)
             if (nl != '') {
               item.next_limit = '【' + nl + '】'
             }
@@ -421,12 +436,12 @@ Page({
       //      console.log(that.data.stations)
     }, 1000);
 
-    function limit(t) {
+    function limit(t, nowString) {
       if (t == '终到站' || t == '暂未开通') {
         return '';
       }
       let now = new Date();
-      let t1 = '2006/12/23 ' + now.getHours().toString() + ':' + now.getMinutes().toString() + ':' + now.getSeconds().toString();
+      let t1 = '2006/12/23 ' + nowString + ':' + now.getSeconds().toString();
       let t2 = '2006/12/23 ' + t + ':00';
       let tt1 = new Date(t1);
       let tt2 = new Date(t2);
