@@ -445,13 +445,13 @@ Page({
     //将计时器赋值给setInter
     that.data.timer = setInterval(function () {
       let now = new Date();
-      let h = now.getHours().toString()
-      let m = now.getMinutes().toString()
-      if (h < '10') {
-        h = '0' + h
+      let h = now.getHours()
+      let m = now.getMinutes()
+      if (h < 10) {
+        h = '0' + h.toString()
       }
-      if (m < '10') {
-        m = '0' + m
+      if (m < 10) {
+        m = '0' + m.toString()
       }
       let nowString = h + ':' + m
       
