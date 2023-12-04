@@ -453,7 +453,6 @@ Page({
         m = '0' + m.toString()
       }
       let nowString = h + ':' + m
-      
       for (const station in stationList) {
         let sTimes = stationList[station].times
         //  console.log(station)

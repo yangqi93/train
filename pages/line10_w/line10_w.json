@@ -7,7 +7,8 @@
     "t-collapse-panel": "tdesign-miniprogram/collapse-panel/collapse-panel",
     "t-row": "tdesign-miniprogram/row/row",
     "t-col": "tdesign-miniprogram/col/col",
-    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar"
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
+    "t-tag": "tdesign-miniprogram/tag/tag"
   },
   "navigationBarTitleText": "10号线-开往王家庄"
 }

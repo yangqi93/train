@@ -2,13 +2,24 @@
 // 获取应用实例
 const app = getApp()
 
+// var plugin = requirePlugin("wxacommentplugin");
+// plugin.openComment({
+//   // wx_pay_id: '4200001729202306024807578', // 交易评价类账号选填
+//   success: (res)=>{
+//     console.log('plugin.openComment success', res)
+//   },
+//   fail: (res) =>{
+//     console.log('plugin.openComment fail', res)
+//   }
+// })
+
 Page({
   data: {
     timer: 9999,
     value: 'index',
     list: [{
         value: 'index',
-        label: '10号线 快七星岗',
+        label: '10号线 快兰花路',
         icon: 'home'
       },
       {
@@ -332,7 +343,31 @@ Page({
       'station_10': {
         'name': '七星岗',
         'times': [
-          '终到站',
+          '07:56',
+          '08:26',
+          '08:56',
+          '09:26',
+          '09:56',
+          '10:26',
+          '10:56',
+          '11:26',
+          '11:56',
+          '12:26',
+          '12:56',
+          '13:26',
+          '13:56',
+          '14:26',
+          '14:56',
+          '15:26',
+          '15:56',
+          '16:26',
+          '16:56',
+          '17:26',
+          '17:56',
+          '18:26',
+          '18:56',
+          '19:26',
+          '19:56',
         ],
       },
       'station_11': {
@@ -344,13 +379,37 @@ Page({
       'station_12': {
         'name': '万寿路',
         'times': [
-          '暂未开通',
+          '08:02',
+          '08:32',
+          '09:02',
+          '09:32',
+          '10:02',
+          '10:32',
+          '11:02',
+          '11:32',
+          '12:02',
+          '12:32',
+          '13:02',
+          '13:32',
+          '14:02',
+          '14:32',
+          '15:02',
+          '15:32',
+          '16:02',
+          '16:32',
+          '17:02',
+          '17:32',
+          '18:02',
+          '18:32',
+          '19:02',
+          '19:32',
+          '20:02',
         ],
       },
       'station_13': {
         'name': '兰花路',
         'times': [
-          '暂未开通',
+          '终到站',
         ],
       },
     },
@@ -406,7 +465,6 @@ Page({
         m = '0' + m.toString()
       }
       let nowString = h + ':' + m
-      
       for (const station in stationList) {
         let sTimes = stationList[station].times
         //  console.log(station)

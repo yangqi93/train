@@ -4,7 +4,7 @@
   visible="true"
   direction="vertical"
   interval="{{3000}}"
-  content="快速列车时刻表信息来源于重庆轨道交通官网，倒计时仅供参考，请提前到站避免延误。【暂不支持双休日，请另行查询。】"
+  content="快速列车时刻表信息来源于重庆轨道交通官网【双休日时刻表功能开发中。】"
   prefixIcon="sound"
   bind:click="click"
 ></t-notice-bar>
@@ -13,8 +13,13 @@
   <view wx:for="{{stations}}" wx:key="index">
     <t-collapse-panel header="{{item.name}} {{item.next}}  {{item.next_limit}}" value="{{index}}">
       <t-row>
-        <view wx:for="{{item.times}}">
-          <t-col span="4" t-class="dark">{{item}}</t-col>
+        <view wx:for="{{item.times}}" wx:for-item="time">
+          <view wx:if="{{item.next === '下一趟:'+time}}">
+            <t-tag class="margin-16" theme="primary">{{time}}</t-tag>
+          </view>
+          <view wx:else>
+            <t-col span="4" t-class="dark">{{time}}</t-col>
+          </view>
         </view>
       </t-row>
     </t-collapse-panel>
